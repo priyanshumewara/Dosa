@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shankar Madrasi Dosa Center | Authentic South Indian Food Rawatbhata</title>
+    <meta name="description" content="Best South Indian restaurant in Rawatbhata. Serving crispy Masala Dosa, Vada Sambar, Idli since generations. Rated 4.3★ by 389+ customers. Open until 10 PM.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#E85D04;--secondary:#FAA307;--accent:#FFBA08;--dark:#2C1810;--light:#FFF8E7;--cream:#FDF6E3;--success:#2ECC71}
+        html{scroll-behavior:smooth}
+        body{font-family:'Poppins',sans-serif;background:var(--cream);overflow-x:hidden;color:var(--dark)}
+
+        /* Preloader */
+        .preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--dark);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .5s,visibility .5s}
+        .preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+        .preloader-dosa{width:90px;height:90px;border:4px solid var(--primary);border-radius:50%;border-top-color:transparent;animation:spin 1s linear infinite;margin:0 auto 1rem}
+        @keyframes spin{to{transform:rotate(360deg)}}
+
+        /* Nav */
+        nav{position:fixed;top:0;width:100%;padding:1rem 5%;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);z-index:1000;box-shadow:0 2px 30px rgba(0,0,0,.1);transition:all .3s}
+        nav.scrolled{padding:.5rem 5%}
+        .nav-container{display:flex;justify-content:space-between;align-items:center;max-width:1400px;margin:0 auto}
+        .logo{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--primary);font-weight:700;display:flex;align-items:center;gap:.5rem;text-decoration:none}
+        .logo i{animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+        .nav-links{display:flex;gap:2rem;list-style:none}
+        .nav-links a{text-decoration:none;color:var(--dark);font-weight:600;font-size:.9rem;position:relative;transition:color .3s;padding:.5rem 0}
+        .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:3px;background:var(--primary);transition:width .3s;border-radius:2px}
+        .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+        .nav-links a:hover{color:var(--primary)}
+        .mobile-menu-btn{display:none;background:none;border:none;font-size:1.5rem;color:var(--dark);cursor:pointer}
+
+        /* Hero */
+        .hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,var(--cream) 0%,#FFE4C4 50%,var(--cream) 100%);position:relative;overflow:hidden;padding-top:80px}
+        .hero-bg-pattern{position:absolute;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 20% 50%,rgba(232,93,4,.1) 0%,transparent 50%),radial-gradient(circle at 80% 80%,rgba(250,163,7,.1) 0%,transparent 50%)}
+        .hero-container{max-width:1400px;margin:0 auto;padding:2rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+        .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:white;padding:.6rem 1.5rem;border-radius:50px;font-weight:600;color:var(--primary);margin-bottom:2rem;box-shadow:0 4px 20px rgba(232,93,4,.2);font-size:.9rem}
+        .hero h1{font-family:'Playfair Display',serif;font-size:3.2rem;color:var(--dark);margin-bottom:1rem;line-height:1.1}
+        .hero h1 .highlight{color:var(--primary);display:block;font-size:2rem;margin-top:.5rem}
+        .hero-subtitle{font-size:1.1rem;color:#666;margin-bottom:2rem;max-width:500px}
+        .hero-stats{display:flex;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+        .stat-box{background:white;padding:1rem 1.5rem;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.1);text-align:center;transition:transform .3s}
+        .stat-box:hover{transform:translateY(-5px)}
+        .stat-number{font-size:1.8rem;font-weight:800;color:var(--primary);display:block}
+        .stat-label{font-size:.8rem;color:#666;font-weight:500}
+        .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap}
+        .btn{padding:1rem 2rem;border-radius:50px;font-weight:600;text-decoration:none;transition:all .3s;display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;border:none;font-size:1rem;font-family:inherit}
+        .btn-primary{background:var(--primary);color:white;box-shadow:0 4px 20px rgba(232,93,4,.4)}
+        .btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(232,93,4,.5);background:#d14a03}
+        .btn-secondary{background:white;color:var(--dark);border:2px solid var(--primary)}
+        .btn-secondary:hover{background:var(--primary);color:white;transform:translateY(-3px)}
+        .btn-large{padding:1.1rem 2.2rem;font-size:1rem}
+        .hero-image{position:relative;animation:float 6s ease-in-out infinite}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+        .hero-image img{width:100%;max-width:550px;border-radius:30px;box-shadow:0 30px 60px rgba(0,0,0,.2)}
+        .floating-elements{position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none}
+        .float-item{position:absolute;font-size:2rem;opacity:.12;animation:floatAround 15s infinite ease-in-out}
+        @keyframes floatAround{0%,100%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(20px,-30px) rotate(90deg)}50%{transform:translate(-10px,20px) rotate(180deg)}75%{transform:translate(30px,10px) rotate(270deg)}}
+
+        /* Section Shared */
+        .section-header{text-align:center;margin-bottom:3.5rem}
+        .section-header h2{font-family:'Playfair Display',serif;font-size:2.6rem;color:var(--dark);margin-bottom:.8rem}
+        .section-header p{color:#666;font-size:1rem;max-width:600px;margin:0 auto}
+        .fade-in{opacity:0;transform:translateY(30px);transition:all .8s ease}
+        .fade-in.visible{opacity:1;transform:translateY(0)}
+
+        /* ─── ORDER SECTION ─────────────────────────────────────── */
+        .order-section-main{padding:5rem 5%;background:white}
+        .order-wrapper{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:start}
+
+        /* Menu picker */
+        .menu-picker{background:var(--cream);border-radius:24px;padding:2rem;box-shadow:0 10px 40px rgba(0,0,0,.07)}
+        .menu-picker h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:1.5rem;color:var(--dark)}
+        .menu-item-row{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0;border-bottom:1px solid #e8d9c5}
+        .menu-item-row:last-child{border-bottom:none}
+        .item-info{flex:1}
+        .item-name{font-weight:700;font-size:.95rem;color:var(--dark)}
+        .item-name-hi{font-size:.8rem;color:#888;margin-top:2px}
+        .item-price-tag{font-weight:800;color:var(--primary);font-size:1rem;min-width:50px;text-align:right;margin-right:1rem}
+        .qty-control{display:flex;align-items:center;gap:.5rem}
+        .qty-btn{width:30px;height:30px;border-radius:50%;border:none;background:var(--primary);color:white;font-size:1.1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+        .qty-btn:hover{background:#c94d00}
+        .qty-display{min-width:24px;text-align:center;font-weight:700;font-size:1rem}
+
+        /* Order summary */
+        .order-summary{background:var(--dark);color:white;border-radius:24px;padding:2rem;position:sticky;top:90px}
+        .order-summary h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:1.5rem;color:var(--accent)}
+        .summary-items{min-height:100px;margin-bottom:1.5rem}
+        .summary-empty{text-align:center;color:#aaa;padding:2rem 0;font-size:.9rem}
+        .summary-row{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:.6rem;padding-bottom:.6rem;border-bottom:1px solid rgba(255,255,255,.1)}
+        .summary-row:last-child{border-bottom:none}
+        .summary-divider{border:none;border-top:1px solid rgba(255,255,255,.2);margin:1rem 0}
+        .summary-total{display:flex;justify-content:space-between;font-size:1.2rem;font-weight:700;margin-bottom:1.5rem;color:var(--accent)}
+        .customer-form input{width:100%;padding:.8rem 1rem;margin-bottom:.8rem;border-radius:10px;border:2px solid rgba(255,255,255,.1);background:rgba(255,255,255,.08);color:white;font-family:inherit;font-size:.9rem;transition:border .2s}
+        .customer-form input::placeholder{color:#aaa}
+        .customer-form input:focus{outline:none;border-color:var(--accent)}
+        .btn-order{width:100%;padding:1rem;background:var(--primary);color:white;border:none;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .3s;margin-top:.5rem}
+        .btn-order:hover{background:#c94d00;transform:translateY(-2px)}
+        .btn-order:disabled{background:#666;cursor:not-allowed;transform:none}
+
+        /* Payment modal */
+        .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:5000;display:none;align-items:center;justify-content:center;padding:1rem}
+        .modal-overlay.open{display:flex}
+        .modal-box{background:white;border-radius:24px;padding:2.5rem;max-width:480px;width:100%;position:relative;animation:popIn .3s ease}
+        @keyframes popIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+        .modal-close{position:absolute;top:1rem;right:1.2rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#666}
+        .modal-title{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:.5rem;color:var(--dark)}
+        .modal-subtitle{color:#666;font-size:.9rem;margin-bottom:1.5rem}
+        .upi-box{background:#f0f8ff;border:2px dashed #1565c0;border-radius:16px;padding:1.5rem;text-align:center;margin-bottom:1.5rem}
+        .upi-label{font-size:.8rem;color:#666;margin-bottom:.3rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+        .upi-id{font-size:1.2rem;font-weight:800;color:#1565c0;letter-spacing:.03em}
+        .upi-name{font-size:.9rem;color:#444;margin-top:.3rem}
+        .upi-amount{font-size:2rem;font-weight:800;color:var(--primary);margin:1rem 0}
+        .payment-steps{text-align:left;margin-bottom:1.5rem}
+        .payment-steps li{font-size:.88rem;color:#555;margin-bottom:.5rem;display:flex;gap:.5rem;align-items:flex-start;line-height:1.4}
+        .payment-steps li::before{content:'→';color:var(--primary);font-weight:700;flex-shrink:0}
+        .utr-input{width:100%;padding:.9rem 1rem;border:2px solid #ddd;border-radius:10px;font-family:inherit;font-size:.95rem;margin-bottom:1rem;transition:border .2s}
+        .utr-input:focus{outline:none;border-color:var(--primary)}
+        .btn-confirm-pay{width:100%;padding:1rem;background:var(--primary);color:white;border:none;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .3s}
+        .btn-confirm-pay:hover{background:#c94d00}
+
+        /* Success modal */
+        .success-modal{background:white;border-radius:24px;padding:2.5rem;max-width:420px;width:100%;text-align:center;animation:popIn .3s ease}
+        .success-icon{font-size:4rem;margin-bottom:1rem}
+        .success-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--dark);margin-bottom:.5rem}
+        .success-subtitle{color:#666;font-size:.95rem;margin-bottom:1.5rem;line-height:1.6}
+        .order-id-box{background:var(--cream);border-radius:12px;padding:1rem;margin-bottom:1.5rem;font-size:1.1rem;font-weight:700;color:var(--primary)}
+        .whatsapp-note{background:#e8f5e9;border-radius:12px;padding:.8rem 1rem;font-size:.85rem;color:#2e7d32;display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem}
+        .btn-done{padding:.9rem 2.5rem;background:var(--primary);color:white;border:none;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit}
+
+        /* Menu Display Section */
+        .menu-section{padding:5rem 5%;background:white}
+        .menu-tabs{display:flex;justify-content:center;gap:1rem;margin-bottom:3rem;flex-wrap:wrap}
+        .tab-btn{padding:.7rem 1.6rem;border:2px solid #ddd;background:white;border-radius:50px;cursor:pointer;font-weight:600;transition:all .3s;font-family:inherit;font-size:.9rem}
+        .tab-btn.active,.tab-btn:hover{background:var(--primary);color:white;border-color:var(--primary)}
+        .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1400px;margin:0 auto}
+        .menu-card{background:var(--cream);border-radius:20px;overflow:hidden;transition:all .4s;position:relative;border:2px solid transparent}
+        .menu-card:hover{transform:translateY(-10px);border-color:var(--primary);box-shadow:0 20px 40px rgba(232,93,4,.15)}
+        .menu-image{height:200px;overflow:hidden;position:relative}
+        .menu-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+        .menu-card:hover .menu-image img{transform:scale(1.1)}
+        .menu-badge{position:absolute;top:1rem;right:1rem;background:var(--accent);color:var(--dark);padding:.3rem .9rem;border-radius:20px;font-size:.78rem;font-weight:700;z-index:10}
+        .menu-content{padding:1.3rem}
+        .menu-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:.4rem}
+        .menu-title{font-size:1.15rem;font-weight:700;color:var(--dark)}
+        .menu-price{font-size:1.3rem;font-weight:800;color:var(--primary)}
+        .menu-desc{color:#666;font-size:.9rem;line-height:1.5;margin-bottom:.8rem}
+        .menu-meta{display:flex;gap:.8rem;font-size:.82rem;color:#888}
+        .menu-meta span{display:flex;align-items:center;gap:.3rem}
+        .btn-add-to-order{width:100%;margin-top:.8rem;padding:.6rem;background:var(--primary);color:white;border:none;border-radius:50px;font-size:.88rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.4rem}
+        .btn-add-to-order:hover{background:#c94d00}
+
+        /* About */
+        .about-section{padding:5rem 5%;background:linear-gradient(135deg,var(--dark) 0%,#4A2511 100%);color:white;position:relative;overflow:hidden}
+        .about-section::before{content:'';position:absolute;width:400px;height:400px;background:rgba(232,93,4,.1);border-radius:50%;top:-200px;right:-100px}
+        .about-container{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+        .about-images{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+        .about-img{border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.3)}
+        .about-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+        .about-img:hover img{transform:scale(1.1)}
+        .about-img:first-child{grid-row:span 2}
+        .about-content h2{font-family:'Playfair Display',serif;font-size:2.5rem;margin-bottom:1.5rem;color:var(--accent)}
+        .about-content>p{font-size:1rem;line-height:1.9;margin-bottom:2rem;opacity:.9}
+        .features-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+        .feature-item{display:flex;align-items:start;gap:1rem}
+        .feature-icon{width:48px;height:48px;background:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+        .feature-text h4{font-size:1rem;margin-bottom:.3rem}
+        .feature-text p{font-size:.85rem;opacity:.8;margin:0}
+
+        /* Gallery */
+        .gallery-section{padding:5rem 5%;background:var(--cream)}
+        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1400px;margin:0 auto}
+        .gallery-item{position:relative;border-radius:20px;overflow:hidden;height:280px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.1)}
+        .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+        .gallery-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.8),transparent);padding:1.5rem;color:white;transform:translateY(100%);transition:transform .3s}
+        .gallery-item:hover img{transform:scale(1.1)}
+        .gallery-item:hover .gallery-overlay{transform:translateY(0)}
+        .gallery-overlay h3{font-size:1.2rem;margin-bottom:.3rem}
+
+        /* Info */
+        .info-section{padding:5rem 5%;background:white}
+        .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;max-width:1400px;margin:0 auto}
+        .info-card{background:var(--cream);padding:2rem;border-radius:20px;text-align:center;transition:all .4s;position:relative;overflow:hidden}
+        .info-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:5px;background:var(--primary);transform:scaleX(0);transition:transform .3s}
+        .info-card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,.1)}
+        .info-card:hover::before{transform:scaleX(1)}
+        .info-icon{width:70px;height:70px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.8rem;color:var(--primary);box-shadow:0 10px 30px rgba(232,93,4,.2);transition:all .3s}
+        .info-card:hover .info-icon{background:var(--primary);color:white}
+        .info-card h3{font-size:1.3rem;margin-bottom:.8rem;color:var(--dark)}
+        .info-card p{color:#666;line-height:1.8;font-size:.9rem}
+        .map-container{margin-top:3rem;max-width:1400px;margin-left:auto;margin-right:auto;border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.1);height:380px}
+        .map-container iframe{width:100%;height:100%;border:none}
+
+        /* Reviews */
+        .reviews-section{padding:5rem 5%;background:linear-gradient(135deg,var(--cream) 0%,white 100%)}
+        .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;max-width:1400px;margin:0 auto 3rem}
+        .review-card{background:white;padding:1.8rem;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08);transition:all .3s;border-left:4px solid var(--primary)}
+        .review-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.12)}
+        .review-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+        .reviewer{display:flex;align-items:center;gap:1rem}
+        .reviewer-avatar{width:48px;height:48px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.1rem}
+        .reviewer-info h4{color:var(--dark);margin-bottom:.2rem;font-size:1rem}
+        .review-date{color:#999;font-size:.82rem}
+        .review-stars{color:var(--accent);font-size:.88rem}
+        .review-text{color:#555;line-height:1.8;font-style:italic;font-size:.9rem;margin-bottom:.8rem}
+        .review-tag{display:inline-block;background:var(--cream);color:var(--primary);padding:.3rem .8rem;border-radius:15px;font-size:.78rem;font-weight:600}
+
+        /* Write Review */
+        .write-review-box{max-width:700px;margin:0 auto;background:white;border-radius:24px;padding:2.5rem;box-shadow:0 15px 40px rgba(0,0,0,.1)}
+        .write-review-box h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom.5rem;color:var(--dark);text-align:center}
+        .write-review-box p{text-align:center;color:#666;margin-bottom:1.5rem;font-size:.9rem}
+        .star-select{display:flex;gap:.5rem;justify-content:center;margin-bottom:1.5rem}
+        .star-select i{font-size:2rem;color:#ddd;cursor:pointer;transition:color .2s}
+        .star-select i.active,.star-select i.hovered{color:var(--accent)}
+        .review-form input,.review-form textarea{width:100%;padding:.9rem 1rem;border:2px solid #eee;border-radius:12px;font-family:inherit;font-size:.95rem;margin-bottom:1rem;transition:border .2s}
+        .review-form input:focus,.review-form textarea:focus{outline:none;border-color:var(--primary)}
+        .review-form textarea{min-height:100px;resize:vertical}
+        .btn-review-submit{width:100%;padding:.9rem;background:var(--primary);color:white;border:none;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .3s}
+        .btn-review-submit:hover{background:#c94d00}
+
+        /* CTA */
+        .cta-section{padding:5rem 5%;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:white;text-align:center;position:relative;overflow:hidden}
+        .cta-section::before{content:'🍛';position:absolute;font-size:18rem;opacity:.05;top:50%;left:50%;transform:translate(-50%,-50%);animation:rotate 60s linear infinite}
+        @keyframes rotate{to{transform:translate(-50%,-50%) rotate(360deg)}}
+        .cta-content{position:relative;z-index:10;max-width:700px;margin:0 auto}
+        .cta-section h2{font-family:'Playfair Display',serif;font-size:2.8rem;margin-bottom:.8rem}
+        .cta-section p{font-size:1.1rem;margin-bottom:2.5rem;opacity:.95}
+        .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+        .btn-white{background:white;color:var(--primary)}
+        .btn-white:hover{background:var(--dark);color:white;transform:translateY(-3px)}
+        .btn-outline-white{background:transparent;color:white;border:2px solid white}
+        .btn-outline-white:hover{background:white;color:var(--primary)}
+
+        /* Contact */
+        .contact-section{padding:5rem 5%;background:white}
+        .contact-container{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+        .contact-form{background:var(--cream);padding:2rem;border-radius:20px}
+        .form-group{margin-bottom:1.2rem}
+        .form-group label{display:block;margin-bottom:.4rem;font-weight:600;color:var(--dark);font-size:.9rem}
+        .form-group input,.form-group textarea,.form-group select{width:100%;padding:.9rem 1rem;border:2px solid #ddd;border-radius:10px;font-family:inherit;font-size:.95rem;transition:border .3s}
+        .form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--primary)}
+        .form-group textarea{resize:vertical;min-height:110px}
+        .contact-info-side h3{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:1.2rem;color:var(--dark)}
+        .contact-info-side>p{color:#666;margin-bottom:1.5rem;line-height:1.8;font-size:.95rem}
+        .contact-detail{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;padding:.9rem 1rem;background:var(--cream);border-radius:15px;transition:all .3s}
+        .contact-detail:hover{background:var(--primary);color:white;transform:translateX(10px)}
+        .contact-detail:hover .contact-icon{background:white;color:var(--primary)}
+        .contact-icon{width:46px;height:46px;background:var(--primary);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .3s;flex-shrink:0}
+
+        /* Footer */
+        footer{background:var(--dark);color:white;padding:4rem 5% 2rem}
+        .footer-content{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+        .footer-brand h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:1rem;color:var(--accent)}
+        .footer-brand p{opacity:.8;line-height:1.8;margin-bottom:1.5rem;font-size:.9rem}
+        .social-links{display:flex;gap:1rem}
+        .social-links a{width:42px;height:42px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;text-decoration:none;transition:all .3s;font-size:1rem}
+        .social-links a:hover{background:var(--primary);transform:translateY(-5px)}
+        .social-links a.instagram:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+        .footer-links h4{font-size:1.1rem;margin-bottom:1.2rem;color:var(--accent)}
+        .footer-links ul{list-style:none}
+        .footer-links li{margin-bottom:.7rem}
+        .footer-links a{color:rgba(255,255,255,.8);text-decoration:none;transition:color .3s;font-size:.9rem}
+        .footer-links a:hover{color:var(--primary)}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;text-align:center;opacity:.6;font-size:.85rem}
+
+        /* Toast */
+        .toast{position:fixed;bottom:2rem;right:2rem;background:var(--dark);color:white;padding:1rem 1.8rem;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.3);display:none;align-items:center;gap:1rem;z-index:9999;animation:slideInRight .3s ease}
+        @keyframes slideInRight{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+        .toast.show{display:flex}
+        .toast-icon{color:var(--success);font-size:1.4rem}
+
+        /* Cart badge */
+        .cart-float{position:fixed;bottom:2rem;left:2rem;background:var(--primary);color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;cursor:pointer;box-shadow:0 8px 25px rgba(232,93,4,.5);z-index:500;transition:all .3s;text-decoration:none}
+        .cart-float:hover{transform:scale(1.1)}
+        .cart-badge{position:absolute;top:-5px;right:-5px;background:var(--accent);color:var(--dark);border-radius:50%;width:22px;height:22px;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+
+        /* Responsive */
+        @media(max-width:968px){
+            .nav-links{display:none}
+            .mobile-menu-btn{display:block}
+            .hero-container{grid-template-columns:1fr;text-align:center}
+            .hero h1{font-size:2.3rem}
+            .hero h1 .highlight{font-size:1.7rem}
+            .hero-stats{justify-content:center}
+            .hero-image{display:none}
+            .about-container{grid-template-columns:1fr}
+            .about-images{order:2}
+            .features-grid{grid-template-columns:1fr}
+            .contact-container{grid-template-columns:1fr}
+            .footer-content{grid-template-columns:1fr 1fr}
+            .order-wrapper{grid-template-columns:1fr}
+            .cta-section h2{font-size:2rem}
+        }
+        @media(max-width:600px){
+            .hero h1{font-size:1.9rem}
+            .menu-grid{grid-template-columns:1fr}
+            .footer-content{grid-template-columns:1fr;text-align:center}
+            .social-links{justify-content:center}
+            .order-summary{position:static}
+        }
+    </style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+    <div class="preloader-content" style="text-align:center">
+        <div class="preloader-dosa"></div>
+        <p style="color:white;font-family:'Playfair Display',serif;font-size:1.2rem">Shankar Madrasi Dosa Center</p>
+        <p style="color:var(--primary);font-size:.9rem;margin-top:.5rem">Loading deliciousness...</p>
+    </div>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-container">
+        <a href="#home" class="logo">
+            <i class="fas fa-utensils"></i>
+            <span>शंकर मद्रासी डोसा</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#order">Order</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" style="display:none;position:fixed;top:70px;left:0;right:0;background:white;z-index:999;padding:2rem;box-shadow:0 10px 30px rgba(0,0,0,.1)">
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:1.5rem">
+        <li><a href="#home" onclick="toggleMobileMenu()" style="text-decoration:none;color:var(--dark);font-weight:600">Home</a></li>
+        <li><a href="#order" onclick="toggleMobileMenu()" style="text-decoration:none;color:var(--dark);font-weight:600">Order Online</a></li>
+        <li><a href="#menu" onclick="toggleMobileMenu()" style="text-decoration:none;color:var(--dark);font-weight:600">Menu</a></li>
+        <li><a href="#about" onclick="toggleMobileMenu()" style="text-decoration:none;color:var(--dark);font-weight:600">About</a></li>
+        <li><a href="#reviews" onclick="toggleMobileMenu()" style="text-decoration:none;color:var(--dark);font-weight:600">Reviews</a></li>
+        <li><a href="#contact" onclick="toggleMobileMenu()" style="text-decoration:none;color:var(--dark);font-weight:600">Contact</a></li>
+    </ul>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="hero-bg-pattern"></div>
+    <div class="floating-elements">
+        <div class="float-item" style="top:10%;left:5%">🍛</div>
+        <div class="float-item" style="top:20%;right:10%;animation-delay:2s">🥘</div>
+        <div class="float-item" style="bottom:20%;left:8%;animation-delay:4s">🍽️</div>
+        <div class="float-item" style="bottom:10%;right:15%;animation-delay:6s">🥗</div>
+    </div>
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span style="margin-left:.5rem">4.3/5 (389+ Reviews)</span>
+            </div>
+            <h1>Authentic South Indian<span class="highlight">Flavors in Rawatbhata</span></h1>
+            <p class="hero-subtitle">Serving perfectly crispy dosas, soft idlis, and delicious vadas since generations. Experience the true taste of Madras at New Chopati Market.</p>
+            <div class="hero-stats">
+                <div class="stat-box"><span class="stat-number">4.3★</span><span class="stat-label">Google Rating</span></div>
+                <div class="stat-box"><span class="stat-number">₹40-150</span><span class="stat-label">Per Person</span></div>
+                <div class="stat-box"><span class="stat-number">10PM</span><span class="stat-label">Open Until</span></div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#order" class="btn btn-primary btn-large"><i class="fas fa-shopping-cart"></i> Order Now</a>
+                <a href="tel:08107919143" class="btn btn-secondary btn-large"><i class="fas fa-phone"></i> Call Now</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://kimi-web-img.moonshot.cn/img/www.indianhealthyrecipes.com/280002496b6f4184b55ce5f70ee8a81b80096f0e.jpg" alt="Masala Dosa">
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ ORDER SECTION ═══════════════ -->
+<section class="order-section-main" id="order">
+    <div class="section-header fade-in">
+        <h2>Order Online</h2>
+        <p>Select your items, pay via UPI, and we'll prepare fresh — your order details go directly to us!</p>
+    </div>
+    <div class="order-wrapper">
+
+        <!-- Menu Picker -->
+        <div class="menu-picker fade-in">
+            <h3>🍽️ Select Your Items</h3>
+            <div id="pickerList">
+                <!-- Filled by JS -->
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary fade-in">
+            <h3>Your Order</h3>
+            <div class="summary-items" id="summaryItems">
+                <div class="summary-empty" id="summaryEmpty">
+                    <i class="fas fa-shopping-basket" style="font-size:2rem;display:block;margin-bottom:.5rem;opacity:.4"></i>
+                    No items added yet
+                </div>
+            </div>
+            <hr class="summary-divider">
+            <div class="summary-total"><span>Total</span><span id="summaryTotal">₹0</span></div>
+
+            <div class="customer-form">
+                <input type="text" id="custName" placeholder="Your Name *" required>
+                <input type="tel" id="custPhone" placeholder="Phone Number * (WhatsApp)" required>
+                <input type="text" id="custAddress" placeholder="Table / Takeaway / Address">
+            </div>
+            <button class="btn-order" id="proceedPayBtn" onclick="proceedToPayment()" disabled>
+                <i class="fas fa-lock"></i> &nbsp;Proceed to Pay
+            </button>
+            <p style="text-align:center;font-size:.78rem;color:#aaa;margin-top:.7rem">
+                <i class="fas fa-shield-alt"></i> Secure UPI Payment · Order confirmed instantly
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Payment Modal -->
+<div class="modal-overlay" id="paymentModal">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('paymentModal')"><i class="fas fa-times"></i></button>
+        <div class="modal-title">💳 Pay via UPI</div>
+        <div class="modal-subtitle">Scan or use UPI ID below to complete your payment</div>
+
+        <div class="upi-box">
+            <div class="upi-label">UPI ID</div>
+            <div class="upi-id" id="modalUpiId">8107919143-5@ibl</div>
+            <div class="upi-name">Sivasankar</div>
+            <div class="upi-amount" id="modalAmount">₹0</div>
+        </div>
+
+        <ul class="payment-steps">
+            <li>Open any UPI app (GPay, PhonePe, Paytm, etc.)</li>
+            <li>Send exactly <strong id="payStepAmt">₹0</strong> to <strong>8107919143-5@ibl</strong></li>
+            <li>Copy the UTR / Transaction ID after payment</li>
+            <li>Paste it below and confirm — your order is placed!</li>
+        </ul>
+
+        <input class="utr-input" type="text" id="utrInput" placeholder="Enter UTR / Transaction ID *">
+        <button class="btn-confirm-pay" onclick="confirmPayment()">
+            <i class="fas fa-check-circle"></i> &nbsp;Confirm Payment &amp; Place Order
+        </button>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal-overlay" id="successModal">
+    <div class="success-modal">
+        <div class="success-icon">🎉</div>
+        <div class="success-title">Order Placed!</div>
+        <div class="success-subtitle">Your order has been confirmed. We're preparing your food right now!</div>
+        <div class="order-id-box">Order ID: <span id="displayOrderId">--</span></div>
+        <div class="whatsapp-note">
+            <i class="fab fa-whatsapp" style="font-size:1.2rem"></i>
+            Invoice &amp; order details sent to restaurant via WhatsApp
+        </div>
+        <button class="btn-done" onclick="closeModal('successModal');resetOrder()">Done ✓</button>
+    </div>
+</div>
+
+<!-- Menu Section -->
+<section class="menu-section" id="menu">
+    <div class="section-header fade-in">
+        <h2>Our Delicious Menu</h2>
+        <p>Authentic South Indian delicacies prepared with traditional recipes and fresh ingredients</p>
+    </div>
+    <div class="menu-tabs fade-in">
+        <button class="tab-btn active" onclick="filterMenu('all',this)">All Items</button>
+        <button class="tab-btn" onclick="filterMenu('dosa',this)">Dosas</button>
+        <button class="tab-btn" onclick="filterMenu('snacks',this)">Snacks</button>
+        <button class="tab-btn" onclick="filterMenu('special',this)">Specials</button>
+    </div>
+    <div class="menu-grid" id="menuGrid"></div>
+</section>
+
+<!-- About -->
+<section class="about-section" id="about">
+    <div class="about-container">
+        <div class="about-images fade-in">
+            <div class="about-img" style="height:300px"><img src="https://kimi-web-img.moonshot.cn/img/images.jdmagicbox.com/473b5dfa8cb44e343a0070aa724a0a9d632949e6.jpg" alt="Restaurant"></div>
+            <div class="about-img" style="height:145px"><img src="https://kimi-web-img.moonshot.cn/img/images.squarespace-cdn.com/c695af000568dd2fd713ce5e557cc6b4a4c2ca43.jpg" alt="Dining"></div>
+            <div class="about-img" style="height:145px"><img src="https://kimi-web-img.moonshot.cn/img/themadscientistskitchen.com/d9b5982f5c7a27f8603919813c65f700cc866709.jpg" alt="Food"></div>
+        </div>
+        <div class="about-content fade-in">
+            <h2>Authentic Taste Since Generations</h2>
+            <p>Located in the vibrant heart of Rawatbhata at New Chopati Market, Shankar Madrasi Dosa Center is a cherished culinary haven. We bring the authentic flavors of South India to Rajasthan — serving perfectly cooked dosas, crispy vadas, and soft idlis that remind you of Madras.</p>
+            <div class="features-grid">
+                <div class="feature-item"><div class="feature-icon"><i class="fas fa-bolt"></i></div><div class="feature-text"><h4>Fast Service</h4><p>Quick even during peak hours</p></div></div>
+                <div class="feature-item"><div class="feature-icon"><i class="fas fa-home"></i></div><div class="feature-text"><h4>Homey Atmosphere</h4><p>Comfortable dining experience</p></div></div>
+                <div class="feature-item"><div class="feature-icon"><i class="fas fa-car"></i></div><div class="feature-text"><h4>Takeaway</h4><p>Quick pickup orders available</p></div></div>
+                <div class="feature-item"><div class="feature-icon"><i class="fas fa-wallet"></i></div><div class="feature-text"><h4>Budget Friendly</h4><p>₹40–₹150 — Best value!</p></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery -->
+<section class="gallery-section" id="gallery">
+    <div class="section-header fade-in"><h2>Food Gallery</h2><p>A visual treat of our delicious South Indian delicacies</p></div>
+    <div class="gallery-grid">
+        <div class="gallery-item fade-in"><img src="https://kimi-web-img.moonshot.cn/img/www.indianhealthyrecipes.com/280002496b6f4184b55ce5f70ee8a81b80096f0e.jpg" alt="Masala Dosa"><div class="gallery-overlay"><h3>Crispy Masala Dosa</h3><p>Our signature dish</p></div></div>
+        <div class="gallery-item fade-in"><img src="https://kimi-web-img.moonshot.cn/img/themadscientistskitchen.com/d9b5982f5c7a27f8603919813c65f700cc866709.jpg" alt="Vada"><div class="gallery-overlay"><h3>Vada Sambar</h3><p>Crispy lentil donuts</p></div></div>
+        <div class="gallery-item fade-in"><img src="https://kimi-web-img.moonshot.cn/img/www.thespruceeats.com/a0203303e30d730cf6918097afbddde656971144.jpg" alt="Idli"><div class="gallery-overlay"><h3>Soft Idlis</h3><p>Steamed with chutney</p></div></div>
+        <div class="gallery-item fade-in"><img src="https://kimi-web-img.moonshot.cn/img/delishglobe.com/4269a56233621c64c276c476438609d2137766b0.png" alt="Dosa"><div class="gallery-overlay"><h3>Butter Dosa</h3><p>Golden crispy delight</p></div></div>
+        <div class="gallery-item fade-in"><img src="https://kimi-web-img.moonshot.cn/img/static01.nyt.com/b9ad3b4bb0420a45758cbbf708886e21a5cdd24b.jpg" alt="Idli fresh"><div class="gallery-overlay"><h3>Fresh Idlis</h3><p>Soft and fluffy every time</p></div></div>
+        <div class="gallery-item fade-in"><img src="https://kimi-web-img.moonshot.cn/img/delishglobe.com/a9105210f64dffa65a00049daa262b2a0330d67c.png" alt="Uttapam"><div class="gallery-overlay"><h3>Vegetable Uttapam</h3><p>Savory pancake</p></div></div>
+    </div>
+</section>
+
+<!-- Info -->
+<section class="info-section" id="info">
+    <div class="section-header fade-in"><h2>Visit Us</h2><p>Find us at New Chopati Market, Rawatbhata</p></div>
+    <div class="info-grid fade-in">
+        <div class="info-card">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <h3>Location</h3>
+            <p>New Chopati Market<br>Cinema Chouraha Main Road<br>Rawatbhata, Rajasthan 323307</p>
+            <a href="https://maps.google.com/?q=Shankar+Madrasi+Dosa+Center+Rawatbhata" target="_blank" class="btn btn-primary" style="margin-top:1rem;padding:.6rem 1.2rem;font-size:.88rem">
+                <i class="fas fa-directions"></i> Get Directions
+            </a>
+        </div>
+        <div class="info-card">
+            <div class="info-icon"><i class="fas fa-clock"></i></div>
+            <h3>Opening Hours</h3>
+            <p><strong>Every Day</strong><br>Morning – 10:00 PM<br><br>Dine-in &amp; Takeaway<br>Drive-through Available</p>
+        </div>
+        <div class="info-card">
+            <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+            <h3>Contact</h3>
+            <p><strong>Phone:</strong><br>081079 19143<br><br><strong>WhatsApp:</strong><br>+91 81079 19143</p>
+            <a href="tel:08107919143" class="btn btn-primary" style="margin-top:1rem;padding:.6rem 1.2rem;font-size:.88rem">
+                <i class="fas fa-phone"></i> Call Now
+            </a>
+        </div>
+        <div class="info-card">
+            <div class="info-icon"><i class="fas fa-rupee-sign"></i></div>
+            <h3>Pricing</h3>
+            <p><strong>Budget Friendly</strong><br>₹40 – ₹150 per person<br><br>Best Value for Money<br>Authentic Taste Guaranteed</p>
+        </div>
+    </div>
+    <div class="map-container fade-in">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.555665846839!2d75.5924473150017!3d24.929977984019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3968a0e1f6e5c5b1%3A0x2b8f5c5b1e5c5b1!2sRawatbhata%2C%20Rajasthan%20323307!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowfullscreen loading="lazy"></iframe>
+    </div>
+</section>
+
+<!-- Reviews -->
+<section class="reviews-section" id="reviews">
+    <div class="section-header fade-in"><h2>Customer Reviews</h2><p>See what 389+ happy customers say about us</p></div>
+    <div class="reviews-grid" id="reviewsGrid">
+        <div class="review-card fade-in">
+            <div class="review-header">
+                <div class="reviewer"><div class="reviewer-avatar">BS</div><div class="reviewer-info"><h4>Banna Saa</h4><div class="review-date">Local Guide · 12 reviews</div></div></div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            </div>
+            <p class="review-text">"Fast service was provided even during peak hours when they were making 15-16 dosas at a time. The masala dosa here is absolutely authentic and crispy! Best in Rawatbhata."</p>
+            <span class="review-tag"><i class="fas fa-check-circle"></i> Verified Visit</span>
+        </div>
+        <div class="review-card fade-in">
+            <div class="review-header">
+                <div class="reviewer"><div class="reviewer-avatar">AT</div><div class="reviewer-info"><h4>Ajit Thite</h4><div class="review-date">January 2025</div></div></div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            </div>
+            <p class="review-text">"Overall, I had a great experience at Shankar Madrasi Dosa! Highly recommended! The staff is welcoming and the food quality is consistent every time I visit."</p>
+            <span class="review-tag"><i class="fas fa-heart"></i> Regular Customer</span>
+        </div>
+        <div class="review-card fade-in">
+            <div class="review-header">
+                <div class="reviewer"><div class="reviewer-avatar">RG</div><div class="reviewer-info"><h4>Rahul Gupta</h4><div class="review-date">December 2024</div></div></div>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+            </div>
+            <p class="review-text">"Perfectly cooked vada, masala dosa and idli. The appealing staff welcomes people all year round. This place has a homey atmosphere that keeps me coming back."</p>
+            <span class="review-tag"><i class="fas fa-utensils"></i> Foodie</span>
+        </div>
+    </div>
+
+    <!-- Write Review -->
+    <div class="write-review-box fade-in">
+        <h3>⭐ Write a Review</h3>
+        <p>Share your experience with others and help us grow!</p>
+        <div class="star-select" id="starSelect">
+            <i class="fas fa-star" data-star="1"></i>
+            <i class="fas fa-star" data-star="2"></i>
+            <i class="fas fa-star" data-star="3"></i>
+            <i class="fas fa-star" data-star="4"></i>
+            <i class="fas fa-star" data-star="5"></i>
+        </div>
+        <div class="review-form">
+            <input type="text" id="reviewName" placeholder="Your Name *">
+            <textarea id="reviewText" placeholder="Write your review... (min 20 characters)"></textarea>
+            <button class="btn-review-submit" onclick="submitReview()">
+                <i class="fas fa-paper-plane"></i> &nbsp;Submit Review
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="cta-content fade-in">
+        <h2>Hungry for Authentic Dosas?</h2>
+        <p>Order online right now or visit us at New Chopati Market — taste the real South India!</p>
+        <div class="cta-buttons">
+            <a href="#order" class="btn btn-white btn-large"><i class="fas fa-shopping-cart"></i> Order Online</a>
+            <a href="tel:08107919143" class="btn btn-white btn-large"><i class="fas fa-phone"></i> 081079 19143</a>
+            <a href="https://wa.me/918107919143" target="_blank" class="btn btn-outline-white btn-large"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="contact-section" id="contact">
+    <div class="section-header fade-in"><h2>Contact Us</h2><p>Questions or bulk orders? Reach out to us!</p></div>
+    <div class="contact-container">
+        <div class="contact-form fade-in">
+            <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                <div class="form-group"><label>Your Name</label><input type="text" required placeholder="Enter your name"></div>
+                <div class="form-group"><label>Phone Number</label><input type="tel" required placeholder="Enter your phone number"></div>
+                <div class="form-group"><label>Order Type</label>
+                    <select required>
+                        <option value="">Select order type</option>
+                        <option>Dine-in</option><option>Takeaway</option><option>Bulk Order</option><option>Catering</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Message / Order Details</label><textarea placeholder="Tell us what you'd like to order..."></textarea></div>
+                <button type="submit" class="btn btn-primary btn-large" style="width:100%;justify-content:center"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+        </div>
+        <div class="contact-info-side fade-in">
+            <h3>Get in Touch</h3>
+            <p>Whether you want to place an order, book a table, or just say hello — we're always here!</p>
+            <div class="contact-detail"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><h4 style="margin-bottom:.2rem">Phone</h4><p style="margin:0;font-size:.9rem">081079 19143</p></div></div>
+            <div class="contact-detail"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4 style="margin-bottom:.2rem">Address</h4><p style="margin:0;font-size:.9rem">New Chopati Market, Cinema Chouraha, Rawatbhata</p></div></div>
+            <div class="contact-detail"><div class="contact-icon"><i class="fas fa-clock"></i></div><div><h4 style="margin-bottom:.2rem">Hours</h4><p style="margin:0;font-size:.9rem">Open Daily until 10 PM</p></div></div>
+            <div class="contact-detail"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><div><h4 style="margin-bottom:.2rem">WhatsApp</h4><p style="margin:0;font-size:.9rem">+91 81079 19143</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>शंकर मद्रासी डोसा केंद्र</h3>
+            <p>Bringing authentic South Indian flavors to Rawatbhata since generations. Quality food, fast service, budget-friendly prices.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/smd_anna_rbt?igsh=MWJndDBlMXkyenRjeA==" target="_blank" rel="noopener" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/918107919143" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://maps.google.com/?q=Shankar+Madrasi+Dosa+Center+Rawatbhata" target="_blank" aria-label="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
+                <a href="tel:08107919143" aria-label="Call Us"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#order">Order Online</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Our Menu</h4>
+            <ul>
+                <li><a href="#menu">Masala Dosa ₹50</a></li>
+                <li><a href="#menu">Idli Sambar ₹30</a></li>
+                <li><a href="#menu">Vada Sambar ₹30</a></li>
+                <li><a href="#menu">Plain Dosa ₹40</a></li>
+                <li><a href="#menu">Uttapam ₹60</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="tel:08107919143">081079 19143</a></li>
+                <li><a href="https://www.instagram.com/smd_anna_rbt?igsh=MWJndDBlMXkyenRjeA==" target="_blank">Instagram</a></li>
+                <li><a href="https://wa.me/918107919143">WhatsApp Order</a></li>
+                <li><a href="https://maps.google.com/?q=Shankar+Madrasi+Dosa+Center+Rawatbhata">Get Directions</a></li>
+                <li>Open until 10 PM Daily</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Shankar Madrasi Dosa Center. All Rights Reserved.</p>
+        <p style="margin-top:.4rem">Made with 🍛 for Dosa Lovers in Rawatbhata &nbsp;|&nbsp; <a href="https://www.instagram.com/smd_anna_rbt?igsh=MWJndDBlMXkyenRjeA==" target="_blank" style="color:var(--accent);text-decoration:none"><i class="fab fa-instagram"></i> @smd_anna_rbt</a></p>
+    </div>
+</footer>
+
+<!-- Cart Floating Button -->
+<a href="#order" class="cart-float" id="cartFloat" style="display:none">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-badge" id="cartBadge">0</span>
+</a>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+    <i class="fas fa-check-circle toast-icon"></i>
+    <div><h4 style="margin:0;font-size:.95rem" id="toastTitle">Done!</h4><p style="margin:0;font-size:.82rem;opacity:.9" id="toastMsg"></p></div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+//  MENU DATA  (from actual menu image)
+// ═══════════════════════════════════════════════
+const MENU = [
+    { id:1,  name:'Plain Dosa',              nameHi:'सादा डोसा',             price:40,  cat:'dosa',    badge:'',          img:'https://kimi-web-img.moonshot.cn/img/www.indianhealthyrecipes.com/280002496b6f4184b55ce5f70ee8a81b80096f0e.jpg', desc:'Thin crispy crepe from fermented rice batter, served with sambar and coconut chutney.', meta:['Crispy','Veg','8 min'] },
+    { id:2,  name:'Butter Plain Dosa',       nameHi:'बटर सादा डोसा',         price:50,  cat:'dosa',    badge:'',          img:'https://kimi-web-img.moonshot.cn/img/delishglobe.com/4269a56233621c64c276c476438609d2137766b0.png', desc:'Crispy plain dosa cooked generously with pure butter, served with chutneys.', meta:['Buttery','Veg','10 min'] },
+    { id:3,  name:'Masala Dosa',             nameHi:'मसाला डोसा',            price:50,  cat:'dosa',    badge:'POPULAR',   img:'https://kimi-web-img.moonshot.cn/img/www.indianhealthyrecipes.com/280002496b6f4184b55ce5f70ee8a81b80096f0e.jpg', desc:'Crispy rice crepe filled with spiced potato masala, served with sambar and coconut chutney.', meta:['Crispy','Veg','10 min'] },
+    { id:4,  name:'Butter Masala Dosa',      nameHi:'बटर मसाला डोसा',        price:60,  cat:'dosa',    badge:'',          img:'https://kimi-web-img.moonshot.cn/img/delishglobe.com/4269a56233621c64c276c476438609d2137766b0.png', desc:'Golden crispy dosa cooked in pure butter with flavorful potato filling.', meta:['Hot','Veg','12 min'] },
+    { id:5,  name:'Paneer Masala Dosa',      nameHi:'पनीर मसाला डोसा',       price:70,  cat:'dosa',    badge:'',          img:'https://kimi-web-img.moonshot.cn/img/dmlxzvnzyohme.cloudfront.net/90ede11c35598c790a58247526c490548aeafecf.jpg', desc:'Dosa stuffed with cottage cheese and aloo masala — a protein-rich delight.', meta:['Paneer','Veg','15 min'] },
+    { id:6,  name:'Butter Paneer Masala Dosa',nameHi:'बटर पनीर मसाला डोसा', price:80,  cat:'special', badge:'BESTSELLER',img:'https://kimi-web-img.moonshot.cn/img/delishglobe.com/4269a56233621c64c276c476438609d2137766b0.png', desc:'House specialty — butter + paneer + masala dosa with our secret spice blend. Must try!', meta:['Special','Veg','18 min'] },
+    { id:7,  name:'Onion Dosa',              nameHi:'ओनियन डोसा',            price:50,  cat:'dosa',    badge:'',          img:'https://kimi-web-img.moonshot.cn/img/dmlxzvnzyohme.cloudfront.net/90ede11c35598c790a58247526c490548aeafecf.jpg', desc:'Thin crispy crepe studded with caramelized onions, served with chutneys.', meta:['Onion','Veg','10 min'] },
+    { id:8,  name:'Cheese Masala Dosa',      nameHi:'चीज मसाला डोसा',        price:70,  cat:'dosa',    badge:'',          img:'https://kimi-web-img.moonshot.cn/img/www.indianhealthyrecipes.com/280002496b6f4184b55ce5f70ee8a81b80096f0e.jpg', desc:'Dosa with spiced potato filling and generous cheese topping — a fusion delight.', meta:['Cheesy','Veg','12 min'] },
+    { id:9,  name:'Idli Sambar (2 pcs)',     nameHi:'इडली साँभर (2 नग)',      price:30,  cat:'snacks',  badge:'HEALTHY',   img:'https://kimi-web-img.moonshot.cn/img/www.thespruceeats.com/a0203303e30d730cf6918097afbddde656971144.jpg', desc:'Soft steamed rice cakes served with tangy lentil stew and coconut chutney.', meta:['Healthy','Veg','8 min'] },
+    { id:10, name:'Vada Sambar (2 pcs)',     nameHi:'वड़ा साँभर (2 नग)',       price:30,  cat:'snacks',  badge:'POPULAR',   img:'https://kimi-web-img.moonshot.cn/img/themadscientistskitchen.com/d9b5982f5c7a27f8603919813c65f700cc866709.jpg', desc:'Crispy fried lentil donuts served hot with sambar and coconut chutney.', meta:['Crispy','Veg','10 min'] },
+    { id:11, name:'Masala Idli (2 pcs)',     nameHi:'मसाला इडली (2 नग)',      price:50,  cat:'snacks',  badge:'',          img:'https://kimi-web-img.moonshot.cn/img/www.thespruceeats.com/a0203303e30d730cf6918097afbddde656971144.jpg', desc:'Soft idlis tossed in a spicy masala tempering — a tasty twist on the classic.', meta:['Spiced','Veg','12 min'] },
+    { id:12, name:'Uttapam',                 nameHi:'उत्तपम',                 price:60,  cat:'snacks',  badge:'',          img:'https://kimi-web-img.moonshot.cn/img/delishglobe.com/a9105210f64dffa65a00049daa262b2a0330d67c.png', desc:'Thick savory pancake from fermented rice batter, topped with fresh vegetables.', meta:['Veggies','Veg','12 min'] },
+];
+
+// ═══════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════
+const cart = {};  // id → qty
+let selectedStars = 0;
+const OWNER_PHONE = '918107919143';
+const UPI_ID = '8107919143-5@ibl';
+const UPI_NAME = 'Sivasankar';
+
+// ═══════════════════════════════════════════════
+//  BUILD PICKER + MENU CARDS
+// ═══════════════════════════════════════════════
+function buildPicker() {
+    const list = document.getElementById('pickerList');
+    list.innerHTML = MENU.map(item => `
+        <div class="menu-item-row">
+            <div class="item-info">
+                <div class="item-name">${item.name}</div>
+                <div class="item-name-hi">${item.nameHi}</div>
+            </div>
+            <span class="item-price-tag">₹${item.price}</span>
+            <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button>
+                <span class="qty-display" id="qty-${item.id}">0</span>
+                <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+function buildMenuCards() {
+    const grid = document.getElementById('menuGrid');
+    grid.innerHTML = MENU.map(item => `
+        <div class="menu-card fade-in" data-category="${item.cat}">
+            <div class="menu-image">
+                <img src="${item.img}" alt="${item.name}" loading="lazy">
+                ${item.badge ? `<span class="menu-badge">${item.badge}</span>` : ''}
+            </div>
+            <div class="menu-content">
+                <div class="menu-header">
+                    <h3 class="menu-title">${item.name}</h3>
+                    <span class="menu-price">₹${item.price}</span>
+                </div>
+                <p class="menu-desc">${item.desc}</p>
+                <div class="menu-meta">
+                    <span><i class="fas fa-fire"></i> ${item.meta[0]}</span>
+                    <span><i class="fas fa-leaf"></i> ${item.meta[1]}</span>
+                    <span><i class="fas fa-clock"></i> ${item.meta[2]}</span>
+                </div>
+                <button class="btn-add-to-order" onclick="changeQty(${item.id},1);showToast('Added to order','${item.name} added!')">
+                    <i class="fas fa-plus"></i> Add to Order
+                </button>
+            </div>
+        </div>
+    `).join('');
+    // observe new cards
+    document.querySelectorAll('#menuGrid .fade-in').forEach(el => observer.observe(el));
+}
+
+// ═══════════════════════════════════════════════
+//  CART
+// ═══════════════════════════════════════════════
+function changeQty(id, delta) {
+    cart[id] = Math.max(0, (cart[id] || 0) + delta);
+    if (cart[id] === 0) delete cart[id];
+    document.getElementById('qty-' + id).textContent = cart[id] || 0;
+    renderSummary();
+    updateCartBadge();
+}
+
+function renderSummary() {
+    const container = document.getElementById('summaryItems');
+    const empty = document.getElementById('summaryEmpty');
+    const ids = Object.keys(cart);
+    if (ids.length === 0) {
+        container.innerHTML = `<div class="summary-empty" id="summaryEmpty"><i class="fas fa-shopping-basket" style="font-size:2rem;display:block;margin-bottom:.5rem;opacity:.4"></i>No items added yet</div>`;
+        document.getElementById('summaryTotal').textContent = '₹0';
+        document.getElementById('proceedPayBtn').disabled = true;
+        return;
+    }
+    let total = 0;
+    let html = '';
+    ids.forEach(id => {
+        const item = MENU.find(m => m.id == id);
+        const subtotal = item.price * cart[id];
+        total += subtotal;
+        html += `<div class="summary-row"><span>${item.name} × ${cart[id]}</span><span>₹${subtotal}</span></div>`;
+    });
+    container.innerHTML = html;
+    document.getElementById('summaryTotal').textContent = '₹' + total;
+    document.getElementById('proceedPayBtn').disabled = false;
+}
+
+function updateCartBadge() {
+    const total = Object.values(cart).reduce((a,b) => a+b, 0);
+    const btn = document.getElementById('cartFloat');
+    const badge = document.getElementById('cartBadge');
+    badge.textContent = total;
+    btn.style.display = total > 0 ? 'flex' : 'none';
+}
+
+function getTotal() {
+    return MENU.reduce((sum, item) => sum + (cart[item.id] || 0) * item.price, 0);
+}
+
+// ═══════════════════════════════════════════════
+//  PAYMENT FLOW
+// ═══════════════════════════════════════════════
+function proceedToPayment() {
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    if (!name) { showToast('Required','Please enter your name'); return; }
+    if (!phone || phone.length < 10) { showToast('Required','Please enter a valid phone number'); return; }
+    const total = getTotal();
+    if (total === 0) { showToast('Empty','Please add items to your order'); return; }
+    document.getElementById('modalAmount').textContent = '₹' + total;
+    document.getElementById('payStepAmt').textContent = '₹' + total;
+    openModal('paymentModal');
+}
+
+function confirmPayment() {
+    const utr = document.getElementById('utrInput').value.trim();
+    if (!utr || utr.length < 6) {
+        showToast('Required', 'Please enter a valid UTR / Transaction ID');
+        return;
+    }
+    const orderId = 'SMD-' + Date.now().toString().slice(-6);
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    const address = document.getElementById('custAddress').value.trim() || 'Not specified';
+    const total = getTotal();
+
+    // Build order summary text
+    let itemLines = '';
+    Object.keys(cart).forEach(id => {
+        const item = MENU.find(m => m.id == id);
+        itemLines += `%0A• ${item.name} × ${cart[id]} = ₹${item.price * cart[id]}`;
+    });
+
+    const now = new Date().toLocaleString('en-IN', {timeZone:'Asia/Kolkata'});
+    const msg =
+        `🍽️ *NEW ORDER — Shankar Madrasi Dosa Center*%0A` +
+        `━━━━━━━━━━━━━━━━━━━%0A` +
+        `📋 *Order ID:* ${orderId}%0A` +
+        `👤 *Customer:* ${name}%0A` +
+        `📞 *Phone:* ${phone}%0A` +
+        `📍 *Delivery/Table:* ${address}%0A` +
+        `⏰ *Time:* ${now}%0A` +
+        `━━━━━━━━━━━━━━━━━━━%0A` +
+        `🛒 *Items Ordered:*${itemLines}%0A` +
+        `━━━━━━━━━━━━━━━━━━━%0A` +
+        `💰 *TOTAL: ₹${total}*%0A` +
+        `🏦 *UPI ID:* ${UPI_ID}%0A` +
+        `🔖 *UTR/Txn ID:* ${utr}%0A` +
+        `━━━━━━━━━━━━━━━━━━━%0A` +
+        `✅ Payment received. Please prepare the order!`;
+
+    // Open WhatsApp to owner with invoice
+    window.open(`https://wa.me/${OWNER_PHONE}?text=${msg}`, '_blank');
+
+    closeModal('paymentModal');
+    document.getElementById('displayOrderId').textContent = orderId;
+    openModal('successModal');
+}
+
+function resetOrder() {
+    Object.keys(cart).forEach(k => {
+        document.getElementById('qty-' + k).textContent = '0';
+        delete cart[k];
+    });
+    renderSummary();
+    updateCartBadge();
+    document.getElementById('custName').value = '';
+    document.getElementById('custPhone').value = '';
+    document.getElementById('custAddress').value = '';
+    document.getElementById('utrInput').value = '';
+}
+
+// ═══════════════════════════════════════════════
+//  MODALS
+// ═══════════════════════════════════════════════
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+// Close on backdrop click
+document.querySelectorAll('.modal-overlay').forEach(el => {
+    el.addEventListener('click', e => { if (e.target === el) el.classList.remove('open'); });
+});
+
+// ═══════════════════════════════════════════════
+//  REVIEWS
+// ═══════════════════════════════════════════════
+const stars = document.querySelectorAll('#starSelect i');
+stars.forEach(star => {
+    star.addEventListener('mouseover', () => {
+        const val = +star.dataset.star;
+        stars.forEach(s => s.classList.toggle('hovered', +s.dataset.star <= val));
+    });
+    star.addEventListener('mouseout', () => stars.forEach(s => s.classList.remove('hovered')));
+    star.addEventListener('click', () => {
+        selectedStars = +star.dataset.star;
+        stars.forEach(s => s.classList.toggle('active', +s.dataset.star <= selectedStars));
+    });
+});
+
+function submitReview() {
+    const name = document.getElementById('reviewName').value.trim();
+    const text = document.getElementById('reviewText').value.trim();
+    if (!name) { showToast('Required','Please enter your name'); return; }
+    if (!selectedStars) { showToast('Required','Please select a star rating'); return; }
+    if (text.length < 20) { showToast('Too short','Review must be at least 20 characters'); return; }
+
+    const initials = name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+    const starHTML = Array.from({length:5}, (_,i) =>
+        `<i class="fas fa-star${i < selectedStars ? '' : (i < selectedStars + 0.5 ? '-half-alt' : '')}"></i>`
+    ).slice(0, 5).map((_,i) =>
+        `<i class="fas fa-star" style="color:${i < selectedStars ? 'var(--accent)' : '#ddd'}"></i>`
+    ).join('');
+
+    const card = document.createElement('div');
+    card.className = 'review-card';
+    card.style.animation = 'popIn .4s ease';
+    card.innerHTML = `
+        <div class="review-header">
+            <div class="reviewer">
+                <div class="reviewer-avatar">${initials}</div>
+                <div class="reviewer-info"><h4>${name}</h4><div class="review-date">Just now</div></div>
+            </div>
+            <div class="review-stars">${Array.from({length:selectedStars},()=>'<i class="fas fa-star" style="color:var(--accent)"></i>').join('')}</div>
+        </div>
+        <p class="review-text">"${text}"</p>
+        <span class="review-tag"><i class="fas fa-check-circle"></i> New Review</span>
+    `;
+    document.getElementById('reviewsGrid').prepend(card);
+    document.getElementById('reviewName').value = '';
+    document.getElementById('reviewText').value = '';
+    selectedStars = 0;
+    stars.forEach(s => s.classList.remove('active'));
+    showToast('Thank you!', 'Your review has been posted');
+}
+
+// ═══════════════════════════════════════════════
+//  MENU FILTER
+// ═══════════════════════════════════════════════
+function filterMenu(category, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.menu-card').forEach(card => {
+        const show = category === 'all' || card.dataset.category === category;
+        card.style.opacity = show ? '1' : '0';
+        card.style.transform = show ? 'translateY(0)' : 'translateY(20px)';
+        card.style.display = show ? 'block' : 'none';
+    });
+}
+
+// ═══════════════════════════════════════════════
+//  TOAST
+// ═══════════════════════════════════════════════
+let toastTimer;
+function showToast(title, msg) {
+    document.getElementById('toastTitle').textContent = title;
+    document.getElementById('toastMsg').textContent = msg;
+    const el = document.getElementById('toast');
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+// ═══════════════════════════════════════════════
+//  CONTACT FORM
+// ═══════════════════════════════════════════════
+function handleContactSubmit(e) {
+    e.preventDefault();
+    showToast('Message Sent!', "We'll contact you soon.");
+    e.target.reset();
+}
+
+// ═══════════════════════════════════════════════
+//  SCROLL & NAV
+// ═══════════════════════════════════════════════
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    const sections = document.querySelectorAll('section');
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+});
+
+function toggleMobileMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.style.display = m.style.display === 'none' ? 'block' : 'none';
+}
+
+// ═══════════════════════════════════════════════
+//  INTERSECTION OBSERVER
+// ═══════════════════════════════════════════════
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin:'0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+});
+
+// ═══════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════
+window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 1500);
+    buildPicker();
+    buildMenuCards();
+    renderSummary();
+});
+</script>
+</body>
+</html>
